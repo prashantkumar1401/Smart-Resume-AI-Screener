@@ -8,3 +8,4 @@ async def analyze_resume(job_description: str = Form(...), file: UploadFile = Fi
     score = 85
     feedback = f"Resume scored {score} based on job description."
     return {"score": score, "feedback": feedback}
+
