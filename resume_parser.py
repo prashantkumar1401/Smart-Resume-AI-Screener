@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import fitz  # Py MuPDF
 
 def parse_resume(file_bytes: bytes) -> str:
     with open("temp_resume.pdf", "wb") as f:
