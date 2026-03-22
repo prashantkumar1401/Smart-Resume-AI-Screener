@@ -19,6 +19,8 @@ async def signup(user: schemas.UserCreate, session: AsyncSession = Depends(datab
 
 @router.post("/login")
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), session: AsyncSession = Depends(database.get_session)):
+
+    
     query = await session.execute(models.User.__table__.select().where(models.User.email == form_data.username))
     user = query.scalar_one_or_none()
     if not user or not auth.verify_password(form_data.password, user.hashed_password):
