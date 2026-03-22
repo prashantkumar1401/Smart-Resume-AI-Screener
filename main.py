@@ -76,5 +76,5 @@ async def analyze_resume(
     except Exception as e:
         return templates.TemplateResponse("index.html", {
             "request": request,
-            "result": f"❌ Error: {str(e)}"
+            "result": f" Error: {str(e)}"
         })
