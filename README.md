@@ -45,13 +45,6 @@ Designed for real-world hiring workflows and easy deployment using Docker + CI/C
 
 ## ⚙️ Getting Started
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Sharma-Mayank15/SmartResume-AI-Screener.git
-cd SmartResume-AI-Screener
-```
-
 ### 2. Create a Virtual Environment
 
 ```bash
@@ -121,10 +114,7 @@ SmartResume-AI-Screener/
 
 ---
 
-## 📜 License
-
-MIT License
 
 ---
 
-> Made with ❤️ by [Mayank Sharma](https://github.com/Sharma-Mayank15)
+> Made with ❤️ by [Prashant Kumar](https://github.com/prashantkumar1401))
