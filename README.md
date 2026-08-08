@@ -1,120 +1,149 @@
+# SmartResume AI Screener
 
-# 🚀 SmartResume-AI-Screener
+An AI-assisted resume screening and job-matching application built with Python and FastAPI. The application accepts a resume and job description, extracts resume text, and uses an LLM to provide structured screening feedback.
 
-**SmartResume-AI-Screener** is an LLM-powered, AI-driven resume screening API built with **FastAPI**, **LangChain**, and **OpenAI**. It enables recruiters and hiring platforms to intelligently parse, evaluate, and rank resumes using dynamic, role-specific screening logic — all served through a scalable, production-ready backend.
+> **Portfolio status:** Entry-level AI/software engineering project. Claims in this README describe the implemented project scope and are intentionally kept conservative.
 
----
+## ✨ Features
 
-## 🔍 Overview
+- Upload PDF resumes
+- Extract text from PDF files
+- Accept a job description
+- Generate AI-assisted candidate feedback
+- Return strengths, concerns and a score out of 100
+- Web interface served by FastAPI/Jinja2
+- Environment-based API key configuration
+- CORS middleware for frontend integration
 
-This system automates resume screening by:
-- Extracting and analyzing core resume data (skills, experience, education).
-- Using GPT-powered evaluations to score and rank candidates based on a given job description.
-- Offering flexible param-based filtering for UI integrations.
-- Supporting multi-format resume inputs (PDF, DOCX).
+## 🧰 Tech Stack
 
-Designed for real-world hiring workflows and easy deployment using Docker + CI/CD.
+- Python
+- FastAPI
+- OpenAI API
+- PyPDF2
+- Jinja2
+- python-dotenv
+- Uvicorn
+- HTML/CSS/JavaScript
 
----
+## 🏗️ Current Flow
 
-## 🧠 Features
+```text
+Resume PDF + Job Description
+            ↓
+       FastAPI endpoint
+            ↓
+       PDF text extraction
+            ↓
+       LLM analysis prompt
+            ↓
+   AI-generated screening feedback
+            ↓
+        Web result page
+```
 
-- ✅ **LLM-Powered Scoring** using GPT via LangChain
-- ⚙️ **FastAPI Backend** with modular endpoints
-- 📑 **Multi-format Resume Support** (.pdf, .docx)
-- 🎯 **Dynamic Role Matching** using job descriptions
-- 🔍 **10+ Filter Parameters** for custom screening
-- 🐳 **Dockerized for Production**, CI/CD-ready
-- 🔐 **Environment Secrets** managed via `.env`
+## 📁 Project Structure
 
----
+```text
+Smart-Resume-AI-Screener/
+├── main.py
+├── requirements.txt
+├── templates/
+├── static/
+├── .env.example
+└── README.md
+```
 
-## 🛠️ Tech Stack
+## 🚀 Run Locally
 
-| Category     | Tools Used                          |
-|--------------|-------------------------------------|
-| Language     | Python 3.10+                        |
-| Backend      | FastAPI                             |
-| AI & LLM     | OpenAI GPT-3.5/4, LangChain         |
-| Parsing      | pdfminer, docx2txt, spaCy           |
-| Containerization | Docker, Docker Compose         |
-| Deployment   | Render / Vercel / AWS (Optional)    |
-| Version Control | Git, GitHub                      |
+### 1. Clone the repository
 
----
+```bash
+git clone https://github.com/prashantkumar1401/Smart-Resume-AI-Screener.git
+cd Smart-Resume-AI-Screener
+```
 
-## ⚙️ Getting Started
-
-### 2. Create a Virtual Environment
+### 2. Create a virtual environment
 
 ```bash
 python -m venv venv
-# Windows
+```
+
+Windows:
+
+```bash
 venv\Scripts\activate
-# macOS/Linux
+```
+
+macOS/Linux:
+
+```bash
 source venv/bin/activate
 ```
 
-### 3. Install Dependencies
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Setup Environment Variables
+### 4. Configure the API key
 
-Create a `.env` file in the root directory:
+Create `.env` from `.env.example` and add your own API key:
 
 ```env
-OPENAI_API_KEY=your_openai_key_here
+OPENAI_API_KEY=your_api_key_here
 ```
 
-> ⚠️ Never commit your `.env` file to GitHub!
+Never commit `.env` or an API key to GitHub.
 
----
-
-## ▶️ Running the App
-
-### Local Development (Uvicorn)
+### 5. Start the application
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Visit: [http://localhost:8000/docs](http://localhost:8000/docs) for Swagger UI.
+Open the local application at `http://127.0.0.1:8000`.
 
----
+## 🔌 Main Endpoint
 
-## 🐳 Docker Deployment
+`POST /analyze/`
 
-### 1. Build and Run
+Inputs:
 
-```bash
-docker build -t smartresume-api .
-docker run -d -p 8000:8000 smartresume-api
-```
+- `file`: PDF resume
+- `job_description`: target job description
 
----
+The endpoint returns the screening result in the web interface.
 
-## 📦 Folder Structure
+## ⚠️ Current Limitations
 
-```bash
-SmartResume-AI-Screener/
-├── app/
-│   ├── main.py
-│   ├── models/
-│   ├── services/
-│   ├── utils/
-│   └── routers/
-├── requirements.txt
-├── Dockerfile
-├── .env.example
-└── README.md
-```
+- The current implementation focuses on PDF resumes.
+- AI output depends on the configured LLM API.
+- The project does not claim validated ATS accuracy or production deployment.
+- Automated skill scoring and deterministic evaluation are planned improvements.
 
----
+## 🔭 Planned Improvements
 
+- DOCX resume support
+- Deterministic skill extraction
+- TF-IDF/cosine-similarity job matching
+- Matched and missing skills
+- Structured JSON API responses
+- Pydantic response models
+- Unit and integration tests
+- Better validation and error handling
+- Docker configuration
+- CI checks
+- Streamlit dashboard
 
----
+## 📌 Skills Demonstrated
 
-> Made with ❤️ by [Prashant Kumar](https://github.com/prashantkumar1401))
+Python • FastAPI • REST API fundamentals • PDF parsing • LLM API integration • Environment configuration • Git/GitHub
+
+## 👤 Author
+
+**Prashant Kumar**
+
+- GitHub: https://github.com/prashantkumar1401
+- LinkedIn: https://www.linkedin.com/in/Prashant-Kumar-271b11290
