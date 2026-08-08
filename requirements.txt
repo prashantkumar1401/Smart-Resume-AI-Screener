@@ -1,11 +1,9 @@
 fastapi
 uvicorn[standard]
-sqlalchemy
-databases[asyncpg]
-asyncpg
-jinja2
-passlib[bcrypt]
 python-multipart
-python-jose[cryptography]
-pydantic[email]
-#prashant kumar
+jinja2
+python-dotenv
+openai
+PyPDF2
+pytest
+httpx
